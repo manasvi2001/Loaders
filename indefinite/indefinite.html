@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Awesome Loader</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="loader-wrapper">
+		<!-- Loader -->
+		<div class="spinner">
+		  <div class="cube1"></div>
+		  <div class="cube2"></div>
+		</div>
+	</div>
+	<div id="content-wrapper">
+		<!-- Content -->
+		Hello
+	</div>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			document.getElementById('loader-wrapper').style.display = "none";
+			document.getElementById('content-wrapper').style.visibility = "initial";
+		}, false);
+	</script>
+	<script type="text/javascript" src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js">
+	</script>
+</body>
+</html>

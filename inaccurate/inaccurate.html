@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style-inaccurate.css">
+</head>
+<body>
+	<div id="overlay">
+        <div id="progstat"></div>
+        <div id="progress"></div>
+    </div>
+
+    <div id="container">
+        <img src="https://s3.amazonaws.com/thinkific/courses/course_card_image_000/098/2111503389842.original.jpg">
+        <img src="https://s3.amazonaws.com/thinkific/courses/course_card_image_000/155/3001502261764.original.jpg">
+        <img src="https://s3.amazonaws.com/thinkific/courses/course_card_image_000/057/6901489415043.original.jpg">
+    </div>
+    <script type="text/javascript">
+    	function loader() {
+    		var allImgs = document.images;
+    		var steps = allImgs.length;
+    		var c = 0;
+
+    		function removeOverlay() {
+    			document.getElementById('overlay').style.display = "none";
+    		}
+
+    		function loaded() {
+    			console.log("I was called");
+    			c += 1;
+    			var w = parseInt(c * (100/steps));
+    			document.getElementById('progress').style.width = w + "%";
+    			document.getElementById('progstat').innerHTML = "Loaded : " + w + "%";
+    			if(c == steps)
+    				removeOverlay();
+    		}
+
+    		for(var i=0;i<allImgs.length;i++) {
+    			var tImg = new Image();
+    			tImg.onload = loaded;
+    			tImg.src = allImgs[i].src;
+    		}
+    	}
+    	loader();
+    </script>
+</body>
+</html>
